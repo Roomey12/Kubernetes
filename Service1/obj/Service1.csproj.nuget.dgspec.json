@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Oleksandr_Lutsenko1\\source\\repos\\Kubernetes\\Service1\\Service1.csproj": {}
+    "C:\\Users\\roomey\\Desktop\\c#\\Kubernetes\\Service1\\Service1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Oleksandr_Lutsenko1\\source\\repos\\Kubernetes\\Service1\\Service1.csproj": {
+    "C:\\Users\\roomey\\Desktop\\c#\\Kubernetes\\Service1\\Service1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Oleksandr_Lutsenko1\\source\\repos\\Kubernetes\\Service1\\Service1.csproj",
+        "projectUniqueName": "C:\\Users\\roomey\\Desktop\\c#\\Kubernetes\\Service1\\Service1.csproj",
         "projectName": "Service1",
-        "projectPath": "C:\\Users\\Oleksandr_Lutsenko1\\source\\repos\\Kubernetes\\Service1\\Service1.csproj",
-        "packagesPath": "C:\\Users\\Oleksandr_Lutsenko1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Oleksandr_Lutsenko1\\source\\repos\\Kubernetes\\Service1\\obj\\",
+        "projectPath": "C:\\Users\\roomey\\Desktop\\c#\\Kubernetes\\Service1\\Service1.csproj",
+        "packagesPath": "C:\\Users\\roomey\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\roomey\\Desktop\\c#\\Kubernetes\\Service1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Oleksandr_Lutsenko1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\roomey\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -67,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

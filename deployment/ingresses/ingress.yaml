@@ -6,14 +6,14 @@ spec:
   rules:
     - http:
         paths:
-          - path: /api/service1        # шлях по якому відбувається перенаправлення на сервіс
-            pathType: Prefix           # все, що починається з `/api` буде направлено на сервіс demo-service. Альтернативно можна використовувати `Exact` та `ImplementationSpecific`
+          - path: /Home # шлях по якому відбувається перенаправлення на сервіс
+            pathType: Prefix # все, що починається з `/api` буде направлено на сервіс demo-service. Альтернативно можна використовувати `Exact` та `ImplementationSpecific`
             backend:
               service:
-                name: service1         # ім'я сервісу
+                name: service1 # ім'я сервісу
                 port:
-                  number: 80           # порт на якому запущено сервіс
-          - path: /api/service2
+                  number: 80 # порт на якому запущено сервіс
+          - path: /Snus
             pathType: Prefix
             backend:
               service:
