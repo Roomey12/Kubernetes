@@ -13,7 +13,7 @@ spec:
        app: service2               # мітка Pod по якому вона буде зв'язана з Deployment та Service
     spec:
       containers:
-        - image: roomey12/service2:latest       # образ Docker
+        - image: 17090120/service2:latest       # образ Docker
           name: service2           # ім'я контейнеру
           ports:
             - containerPort: 80  # порт по якому можна звертатись до поди

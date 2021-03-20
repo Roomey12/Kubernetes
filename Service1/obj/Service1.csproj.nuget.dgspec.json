@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\roomey\\Desktop\\c#\\Kubernetes\\Service1\\Service1.csproj": {}
+    "/home/simon/Repos/Kubernetes/Service1/Service1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\roomey\\Desktop\\c#\\Kubernetes\\Service1\\Service1.csproj": {
+    "/home/simon/Repos/Kubernetes/Service1/Service1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\roomey\\Desktop\\c#\\Kubernetes\\Service1\\Service1.csproj",
+        "projectUniqueName": "/home/simon/Repos/Kubernetes/Service1/Service1.csproj",
         "projectName": "Service1",
-        "projectPath": "C:\\Users\\roomey\\Desktop\\c#\\Kubernetes\\Service1\\Service1.csproj",
-        "packagesPath": "C:\\Users\\roomey\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\roomey\\Desktop\\c#\\Kubernetes\\Service1\\obj\\",
+        "projectPath": "/home/simon/Repos/Kubernetes/Service1/Service1.csproj",
+        "packagesPath": "/home/simon/.nuget/packages/",
+        "outputPath": "/home/simon/Repos/Kubernetes/Service1/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\roomey\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/simon/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -67,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.201/RuntimeIdentifierGraph.json"
         }
       }
     }
