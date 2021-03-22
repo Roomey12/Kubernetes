@@ -1,14 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Threading;
-using Microsoft.AspNetCore.Hosting.Server;
-using Microsoft.AspNetCore.Hosting.Server.Features;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 
 namespace Service1.Controllers
 {
@@ -41,22 +36,33 @@ namespace Service1.Controllers
         }
 
         [HttpGet]
-        [Route("Ports")]
-        public IActionResult GetPorts()
+        [Route("Get500Error")]
+        public IActionResult CreateError()
         {
-            var server = ServiceProvider.GetRequiredService<IServer>();
-            var addressFeature = server.Features.Get<IServerAddressesFeature>();
-            return Ok(addressFeature.Addresses);
+            throw new Exception("this is exception");
         }
-
+        
         [HttpGet]
-        [Route("CallService2")]
-        public async Task<IActionResult> CallService1([FromQuery] string service2url)
+        [Route("CallServiceBrokenEndpoint")]
+        public async Task<IActionResult> CallService1([FromQuery] int amountOfCallsToService1 = 10)
         {
-            if (string.IsNullOrEmpty(service2url)) return BadRequest("Empty path");
+            try
+            {
+                var tasks = new List<Task>();
 
-            var response = await client.GetAsync(service2url + "/Snus");
-            return Ok($"Call successful. \n Result: {await response.Content.ReadAsStringAsync()}");
+                for (int i = 0; i < amountOfCallsToService1; i++)
+                {
+                    tasks.Add(client.GetAsync(
+                        $"http://service2-service:8080/Snus/GetError"));
+                }
+
+                await Task.WhenAll(tasks);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
         }
     }
 }

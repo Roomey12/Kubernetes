@@ -13,7 +13,7 @@ spec:
         app: service1
     spec:
       containers:
-        - image: 17090120/service1:latest 
+        - image: 17090120/service1:latest
           name: service1
           imagePullPolicy: Always
           ports:

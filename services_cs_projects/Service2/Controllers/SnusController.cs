@@ -1,14 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting.Server;
-using Microsoft.AspNetCore.Hosting.Server.Features;
-using Microsoft.Extensions.DependencyInjection;
 
-namespace Service1.Controllers
+namespace Service2.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -29,23 +25,36 @@ namespace Service1.Controllers
             return "hello from service2";
         }
 
+
         [HttpGet]
-        [Route("Ports")]
-        public IActionResult GetPorts()
+        [Route("GetError")]
+        public IActionResult CreateError()
         {
-            var server = _serviceProvider.GetRequiredService<IServer>();
-            var addressFeature = server.Features.Get<IServerAddressesFeature>();
-            return Ok(addressFeature.Addresses);
+            throw new Exception("this is exception");
         }
 
         [HttpGet]
-        [Route("CallService1")]
-        public async Task<IActionResult> CallService1([FromQuery] string service1url)
+        [Route("CallServiceDelayedEndpoint")]
+        public async Task<IActionResult> CallService1([FromQuery] int amountOfCallsToService1 = 10,
+            [FromQuery] int delayForEachRequest = 1000)
         {
-            if (string.IsNullOrEmpty(service1url)) return BadRequest("Empty path");
+            try
+            {
+                var tasks = new List<Task>();
 
-            var response = await client.GetAsync(service1url + "/Home");
-            return Ok($"Call successful. \n Result: {await response.Content.ReadAsStringAsync()}");
+                for (int i = 0; i < amountOfCallsToService1; i++)
+                {
+                    tasks.Add(client.GetAsync(
+                        $"http://service1-service:8080/Home/TimeOutRequest?timeout={delayForEachRequest}"));
+                }
+
+                await Task.WhenAll(tasks);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
         }
     }
 }

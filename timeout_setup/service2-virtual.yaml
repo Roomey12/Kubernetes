@@ -9,8 +9,8 @@ spec:
     - route:
         - destination:
             host: service2 # ім'я Service до якого застосовується налаштування
-      timeout: 5s
+      timeout: 2s
       retries:
-        attempts: 3
+        attempts: 2
         retryOn: 5xx
         perTryTimeout: 5s
