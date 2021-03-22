@@ -10,14 +10,14 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: service1
+                name: service1-service
                 port:
                   number: 80
           - path: /Snus
             pathType: Prefix
             backend:
               service:
-                name: service2
+                name: service2-service
                 port:
                   number: 80
           

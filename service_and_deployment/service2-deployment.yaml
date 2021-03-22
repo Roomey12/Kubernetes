@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: service2-deployment
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: service2
@@ -15,6 +15,7 @@ spec:
       containers:
         - image: 17090120/service2:latest
           name: service2
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
 ---
@@ -24,7 +25,7 @@ metadata:
   name: service2-service
 spec:
   ports:
-    - port: 80
-      targetPort: 8080
+    - port: 8080
+      targetPort: 80
   selector:
     app: service2
