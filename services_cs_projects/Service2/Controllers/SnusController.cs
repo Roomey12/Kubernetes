@@ -10,14 +10,7 @@ namespace Service2.Controllers
     [Route("[controller]")]
     public class SnusController : ControllerBase
     {
-        private readonly IEnumerable<string> _service1Ports = new List<string>();
-        private readonly IServiceProvider _serviceProvider;
-        static readonly HttpClient client = new HttpClient();
-
-        public SnusController(IServiceProvider serviceProvider)
-        {
-            _serviceProvider = serviceProvider;
-        }
+        private static readonly HttpClient Client = new HttpClient();
 
         [HttpGet]
         public string GetHello()
@@ -44,7 +37,7 @@ namespace Service2.Controllers
 
                 for (int i = 0; i < amountOfCallsToService1; i++)
                 {
-                    tasks.Add(client.GetAsync(
+                    tasks.Add(Client.GetAsync(
                         $"http://service1-service:8080/Home/TimeOutRequest?timeout={delayForEachRequest}"));
                 }
 

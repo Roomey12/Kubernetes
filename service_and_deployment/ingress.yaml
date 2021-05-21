@@ -6,14 +6,14 @@ spec:
   rules:
     - http:
         paths:
-          - path: /Home
+          - path: /service1/(.*)
             pathType: Prefix
             backend:
               service:
                 name: service1-service
                 port:
                   number: 80
-          - path: /Snus
+          - path: /service2/(.*)
             pathType: Prefix
             backend:
               service:

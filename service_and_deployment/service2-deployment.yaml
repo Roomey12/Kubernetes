@@ -13,9 +13,9 @@ spec:
         app: service2
     spec:
       containers:
-        - image: 17090120/service2:latest
+        - image: service-two:latest
           name: service2
-          imagePullPolicy: Always
+          imagePullPolicy: Never
           ports:
             - containerPort: 8080
 ---
