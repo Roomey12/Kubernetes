@@ -35,7 +35,7 @@ namespace Service1
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<Startup> logger)
         {
             if (env.IsDevelopment())
             {
@@ -43,7 +43,16 @@ namespace Service1
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Service1 v1"));
             }
+            app.Use(async (context, next) =>
+                                    {
+                                        var dash = '\n' + new string('-', 40) + '\n';
+                                        var remoteIpAddress = context.Request.HttpContext.Connection.RemoteIpAddress;
+                                        var host = context.Request.Host.Value;
 
+                                        logger.LogInformation($"\nRequest {context.Request.Path}; IP = {remoteIpAddress}; Host = {host}; HTTPS? = {context.Request.IsHttps}" +
+                                                              $"\nMethod {context.Request.Method}\nHeaders\n{string.Join('\n', context.Request.Headers)}" + dash);
+                                        await next.Invoke();
+                                    });
             app.UseHttpsRedirection();
 
             app.UseRouting();
